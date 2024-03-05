@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const inputItem = document.querySelector('input');
+      const btnAdicionar = document.querySelector('button');
+      const btnRemoverUltimo = document.querySelector('div:last-child button');
+      const listaItens = document.getElementById('lista-itens');
+
+      btnAdicionar.addEventListener('click', function() {
+        if (inputItem.value.trim() !== '') {
+          const novoItem = document.createElement('li');
+          novoItem.textContent = inputItem.value;
+
+          listaItens.appendChild(novoItem);
+
+          inputItem.value = '';
+        }
+      });
+
+      btnRemoverUltimo.addEventListener('click', function() {
+        if (listaItens.children.length > 0) {
+
+            listaItens.removeChild(listaItens.lastElementChild);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>To-do</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Lista de atividades:</p>
+  </div>
+
+  <div>
+    <input placeholder="Digite aqui o item" />
+    <button>Adicionar</button>
+  </div>
+
+  <ul id="lista-itens">
+    <li>item a</li>
+  </ul>
+
+  <div>
+    <button>Remover último item</button>
+  </div>
+</body>
+</html>

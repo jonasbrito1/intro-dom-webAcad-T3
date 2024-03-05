@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      const listaItens1 = document.getElementById('lista-itens-1');
+      const primeiroFilho = listaItens1.firstElementChild;
+      const ultimoFilho = listaItens1.lastElementChild;
+      console.log('i) Primeiro Filho:', primeiroFilho.textContent);
+      console.log('   Último Filho:', ultimoFilho.textContent);
+
+      const paiLista1 = listaItens1.parentElement;
+      console.log('ii) Elemento Pai:', paiLista1);
+
+      const filhosLista1 = listaItens1.children;
+      console.log('iii) Todos os Filhos:');
+      for (let i = 0; i < filhosLista1.length; i++) {
+        console.log('   -', filhosLista1[i].textContent);
+      }
+
+      const itemTwo = document.getElementById('two');
+      const irmaosItemTwo = Array.from(itemTwo.parentElement.children).filter(irmao => irmao !== itemTwo);
+      console.log('iv) Irmãos do Item com id = \'two\':', irmaosItemTwo);
+    });
+  </script>
+</head>
+<body>
+  <h1>Várias listas</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Lista de itens:</p>
+  </div>
+
+  <ul id="lista-itens-1">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+</body>
+</html>
+
